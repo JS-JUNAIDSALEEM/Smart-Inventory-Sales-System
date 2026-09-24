@@ -20,9 +20,7 @@ class Shop:
         }
         self.coupons = {"save10": 0.10, "welcome20": 0.20}
 
-# ------------------------------------------
 # DATA INITIAL LOADING
-# ------------------------------------------
 
     def load_database(self):
         try:
@@ -197,7 +195,7 @@ class Shop:
         with open("shop_records.json", "w") as file:
             json.dump(data_to_save, file)
         print("\n💾 Data saved successfully!")
-        print("\nSystem Shutdown. Thank you for using Smart Inventory Sales System!\n")
+        print("\nSystem Shutdown. Thank you for using Smart Inventory & Sales System!\n")
 
 # MAIN SYSTEM LOOP
 
