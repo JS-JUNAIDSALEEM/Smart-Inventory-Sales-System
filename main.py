@@ -102,9 +102,9 @@ class Shop:
     def show_total_earnings(self):
         print("\n" + "─"*30)
         if self.total_earnings == 0:
-            print("💸 Financial Statement: No earnings recorded yet.")
+            print("Financial Statement: No earnings recorded yet.")
         else:
-            print(f"💰 Cumulative Revenue: ₨ {self.total_earnings:.2f}")
+            print(f"Cumulative Revenue: ₨ {self.total_earnings:.2f}")
         print("─"*30)
 
 # 4. RESTOCK OR ADD ITEM
