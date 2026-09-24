@@ -57,7 +57,7 @@ class Shop:
             for item in self.inventory:
                 price = self.inventory[item].price
                 quantity = self.inventory[item].quantity
-                print(f"🔹 {item.capitalize():<12} | Price: ₨ {price:<5.2f} | Stock: {quantity}")
+                print(f"{item.capitalize():<12} | Price: ₨ {price:<5.2f} | Stock: {quantity}")
 
 # 2. SALE ITEM
 
