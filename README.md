@@ -34,15 +34,15 @@ This system provides a simple way to:
 - Delete products from inventory
 - Save and load data using JSON
 - Reset the shop database
-- Handle invalid user input using exception handling
+- Handle common invalid user inputs using exception handling
 - Prevent sales when available stock is insufficient
 
 ---
 
 ## 🛠️ Technologies Used
 
-- Python
-- JSON
+- **Python**
+- **JSON** (Python's built-in `json` module)
 
 ### Python Concepts Used
 
@@ -55,7 +55,7 @@ This system provides a simple way to:
 - Exception handling
 - User input validation
 
-The project only uses Python's built-in `json` module, so no external Python libraries are required.
+No external Python libraries are required.
 
 ---
 
@@ -67,22 +67,22 @@ Smart-Inventory-Sales-System/
 ├── main.py
 ├── README.md
 ├── .gitignore
-└── shop_records.json
+├── shop_records.json          # Created/updated when data is saved
+└── Screeshots/
+    ├── Main Menu.png
+    ├── Inventory.png
+    ├── Successful Sale 1.0.png
+    ├── Successful Sale 2.0.png
+    └── Total Earning.png
 ```
 
 ### File Details
 
-`main.py`  
-Contains the main application logic.
-
-`shop_records.json`  
-Stores inventory and total earnings data while the program is being used.
-
-`README.md`  
-Contains project information and instructions.
-
-`.gitignore`  
-Prevents unnecessary files from being uploaded to GitHub.
+- **`main.py`** — Contains the main application logic.
+- **`shop_records.json`** — Stores inventory and total earnings after saving. It is created automatically when you save and exit or reset the database; it may be absent before the first save.
+- **`README.md`** — Contains project information and instructions.
+- **`.gitignore`** — Excludes unnecessary local files from Git.
+- **`Screeshots/`** — Contains screenshots of the command-line application.
 
 ---
 
@@ -99,8 +99,10 @@ python --version
 ### 2. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/Smart-Inventory-Sales-System.git
+git clone https://github.com/JS-JUNAIDSALEEM/Smart-Inventory-Sales-System.git
 ```
+
+*If your actual repository name differs, replace the URL above with its exact GitHub URL.*
 
 ### 3. Open the project folder
 
@@ -181,76 +183,58 @@ The user can check cumulative shop earnings from the main menu.
 
 ## 💾 Data Storage
 
-The project uses:
-
-```text
-shop_records.json
-```
-
-to save:
+The project uses **`shop_records.json`** to save:
 
 - Product prices
 - Product quantities
 - Total earnings
 
-When the program starts, previous shop data is loaded automatically if the file exists.
+When the program starts, previous shop data is loaded automatically if the file exists and contains valid JSON in the expected format.
 
-When the user exits the program, the latest inventory and earnings data are saved.
+When the user selects **Exit System**, the latest inventory and earnings data are saved. The database reset option also writes the restored default data to this file.
 
 ---
 
 ## ⚠️ Error Handling
 
-The system handles several types of invalid input, including:
+The system handles several common invalid inputs and conditions, including:
 
 - Invalid menu numbers
 - Non-numeric quantity input
-- Invalid product prices
+- Non-numeric product price input
 - Products that do not exist
-- Insufficient stock
-- Invalid coupon codes
+- Insufficient stock during sales
+- Invalid coupon codes (sale continues without a discount)
 - Missing JSON database file
-- Invalid JSON data
+- Invalid JSON syntax in the database file
 
-This helps prevent the program from crashing because of common user input mistakes.
+**Note:** Some inputs, such as negative restock quantities or negative prices for new products, still need additional validation. This is a potential future improvement.
 
 ---
 
 ## 📸 Screenshots
 
-Add screenshots of the running application inside a `screenshots` folder.
-
-Recommended screenshots:
+Screenshots of the application are stored in the **`Screeshots/`** folder.
 
 ### Main Menu
 
-```text
-screenshots/main-menu.png
-```
+![Main Menu](Screeshots/Main%20Menu.png)
 
 ### Inventory Report
 
-```text
-screenshots/inventory.png
-```
+![Inventory Report](Screeshots/Inventory.png)
 
-### Successful Sale
+### Successful Sale — Step 1
 
-```text
-screenshots/sale.png
-```
+![Successful Sale 1](Screeshots/Successful%20Sale%201.0.png)
+
+### Successful Sale — Step 2
+
+![Successful Sale 2](Screeshots/Successful%20Sale%202.0.png)
 
 ### Total Earnings
 
-```text
-screenshots/earnings.png
-```
-
-After adding screenshots, they can be displayed in the README like this:
-
-```markdown
-![Main Menu](screenshots/main-menu.png)
-```
+![Total Earnings](Screeshots/Total%20Earning.png)
 
 ---
 
@@ -287,6 +271,7 @@ As I continue improving my Python and AI skills, this project can be extended wi
 - Data visualization
 - SQLite or another database
 - User authentication
+- Stronger validation for prices and stock quantities
 
 ### Future AI Improvements
 
@@ -315,9 +300,8 @@ The purpose of this project was to apply Python concepts in a practical applicat
 
 Python Learner | Aspiring AI Engineer
 
-GitHub: `https://github.com/JS-JUNAIDSALEEM`
-
-LinkedIn: `https://www.linkedin.com/in/junaid-saleem-developer?utm_source=share_via&utm_content=profile&utm_medium=member_android`
+- **GitHub:** [JS-JUNAIDSALEEM](https://github.com/JS-JUNAIDSALEEM)
+- **LinkedIn:** [Junaid Saleem](https://www.linkedin.com/in/junaid-saleem-developer/)
 
 ---
 
