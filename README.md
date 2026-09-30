@@ -68,7 +68,7 @@ Smart-Inventory-Sales-System/
 ├── README.md
 ├── .gitignore
 ├── shop_records.json          # Created/updated when data is saved
-└── Screeshots/
+└── Screenshots/
     ├── Main Menu.png
     ├── Inventory.png
     ├── Successful Sale 1.0.png
@@ -82,7 +82,7 @@ Smart-Inventory-Sales-System/
 - **`shop_records.json`** — Stores inventory and total earnings after saving. It is created automatically when you save and exit or reset the database; it may be absent before the first save.
 - **`README.md`** — Contains project information and instructions.
 - **`.gitignore`** — Excludes unnecessary local files from Git.
-- **`Screeshots/`** — Contains screenshots of the command-line application.
+- **`Screenshots/`** — Contains screenshots of the command-line application.
 
 ---
 
@@ -216,21 +216,21 @@ The system handles several common invalid inputs and conditions, including:
 
 ### Main Menu
 
-![Main Menu](Screeshots/Main%20Menu.png)
+![Main Menu](Screenshots/Main%20Menu.png)
 
 ### Inventory Report
 
-![Inventory](Screeshots/Inventory.png)
+![Inventory](Screenshots/Inventory.png)
 
 ### Successful Sale
 
-![Successful Sale 1](Screeshots/Successful%20Sale%201.0.png)
+![Successful Sale 1](Screenshots/Successful%20Sale%201.0.png)
 
-![Successful Sale 2](Screeshots/Successful%20Sale%202.0.png)
+![Successful Sale 2](Screenshots/Successful%20Sale%202.0.png)
 
 ### Total Earnings
 
-![Total Earnings](Screeshots/Total%20Earning.png)
+![Total Earnings](Screenshots/Total%20Earning.png)
 
 ## 📚 What I Practiced
 
