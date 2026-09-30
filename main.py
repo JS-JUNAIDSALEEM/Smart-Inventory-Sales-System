@@ -1,3 +1,4 @@
+
 # 📊 SMART INVENTORY & SALES SYSTEM
 
 import json
@@ -12,11 +13,21 @@ class Shop:
     def __init__(self):
         self.total_earnings = 0.0
         self.inventory = {
-            "chips": Product("chips", 20.0, 20),
-            "juice": Product("juice", 50.0, 10),
-            "biscuits": Product("biscuits", 40.0, 5)
+        "chips": Product("chips", 20.0, 20),
+        "juice": Product("juice", 50.0, 10),
+        "biscuits": Product("biscuits", 40.0, 5),
+        "chocolate": Product("chocolate", 80.0, 15),
+        "soda": Product("soda", 60.0, 12),
+        "water": Product("water", 30.0, 25),
+        "candy": Product("candy", 10.0, 50),
+        "noodles": Product("noodles", 50.0, 18)
         }
+
         self.coupons = {"save10": 0.10, "welcome20": 0.20}
+
+        # FIX: Track updated inventory version
+        self.database_version = 2
+
 
 # DATA INITIAL LOADING
 
@@ -25,6 +36,9 @@ class Shop:
             with open("shop_records.json", "r") as file:
                 loaded_data = json.load(file)
                 self.total_earnings = loaded_data["total_earnings"]
+
+                # FIX: Check previous database version
+                old_version = loaded_data.get("database_version", 1)
 
                 # Raw text dictionary ko wapas Product Objects me convert karna
                 self.inventory = {}
@@ -35,6 +49,23 @@ class Shop:
                         details["quantity"]
                     )
 
+                # FIX: Add missing products from updated inventory
+                if old_version < self.database_version:
+
+                    new_products = {
+                        "chocolate": Product("chocolate", 80.0, 15),
+                        "soda": Product("soda", 60.0, 12),
+                        "water": Product("water", 30.0, 25),
+                        "candy": Product("candy", 10.0, 50),
+                        "noodles": Product("noodles", 50.0, 18)
+                    }
+
+                    for item_name, product in new_products.items():
+                        if item_name not in self.inventory:
+                            self.inventory[item_name] = product
+
+                    print("✅ Inventory updated with new products!")
+
                 print("✅ Previous shop data loaded successfully!")
 
         except FileNotFoundError:
@@ -42,6 +73,7 @@ class Shop:
 
         except json.JSONDecodeError:
             print("⚠️ Invalid database file. Starting with fresh default stock!")
+
 
 # 1. SHOW INVENTORY
 
@@ -56,6 +88,7 @@ class Shop:
                 price = self.inventory[item].price
                 quantity = self.inventory[item].quantity
                 print(f"{item.capitalize():<12} | Price: ₨ {price:<5.2f} | Stock: {quantity}")
+
 
 # 2. SALE ITEM
 
@@ -80,8 +113,8 @@ class Shop:
                 self.inventory[selected_item].quantity -= item_quantity
                 price_item = self.inventory[selected_item].price * item_quantity
 
-                coupon_code = input("Enter coupon code (or press Enter to skip): ").lower().strip()
-                if coupon_code == "":
+                coupon_code = input("Enter coupon code ( 'save10' or 'welcome20'): ").lower().strip()
+                if coupon_code == "" or coupon_code == "0":
                     print("No coupon entered. Original price applied.")
                 elif coupon_code in self.coupons:
                     discount_rate = self.coupons[coupon_code]
@@ -97,6 +130,7 @@ class Shop:
         else:
             print("❌ Error: This item does not exist in the inventory!")
 
+
 # 3. SHOW TOTAL EARNINGS
 
     def show_total_earnings(self):
@@ -104,8 +138,9 @@ class Shop:
         if self.total_earnings == 0:
             print("Financial Statement: No earnings recorded yet.")
         else:
-            print(f"Cumulative Revenue: ₨ {self.total_earnings:.2f}")
+            print(f"Total Revenue: ₨ {self.total_earnings:.2f}")
         print("─"*30)
+
 
 # 4. RESTOCK OR ADD ITEM
 
@@ -136,7 +171,8 @@ class Shop:
             self.inventory[new_stock] = Product(new_stock, new_item_price, new_item_quantity)
             print(f"Database Updated: {new_stock.capitalize()} successfully added!")
 
-#  5. DELETE ITEM
+
+# 5. DELETE ITEM
 
     def delete_item(self):
         item_to_delete = input("\nEnter item name to DELETE from inventory (or '0'/Enter to cancel): ").lower().strip()
@@ -150,6 +186,7 @@ class Shop:
         else:
             print("❌ Error: Item not found in the inventory.")
 
+
 # 6. RESET DATABASE
 
     def reset_database(self):
@@ -158,8 +195,14 @@ class Shop:
             self.inventory = {
                 "chips": Product("chips", 20.0, 20),
                 "juice": Product("juice", 50.0, 10),
-                "biscuits": Product("biscuits", 40.0, 5)
-            }
+                "biscuits": Product("biscuits", 40.0, 5),
+                "chocolate": Product("chocolate", 80.0, 15),
+                "soda": Product("soda", 60.0, 12),
+                "water": Product("water", 30.0, 25),
+                "candy": Product("candy", 10.0, 50),
+                "noodles": Product("noodles", 50.0, 18)
+                }
+
             self.total_earnings = 0.0
 
             serializable_inventory = {}
@@ -168,7 +211,8 @@ class Shop:
 
             data_to_save = {
                 "inventory": serializable_inventory,
-                "total_earnings": self.total_earnings
+                "total_earnings": self.total_earnings,
+                "database_version": self.database_version
             }
 
             with open("shop_records.json", "w") as file:
@@ -177,6 +221,7 @@ class Shop:
             print("Success: Database reset! Default stock restored.")
         else:
             print("Reset cancelled. Your data is safe.")
+
 
 # 7. SAVE AND EXIT
 
@@ -188,12 +233,16 @@ class Shop:
 
         data_to_save = {
             "inventory": serializable_inventory,
-            "total_earnings": self.total_earnings
+            "total_earnings": self.total_earnings,
+            "database_version": self.database_version
         }
+
         with open("shop_records.json", "w") as file:
             json.dump(data_to_save, file)
+
         print("\n💾 Data saved successfully!")
         print("\nSystem Shutdown. Thank you for using Smart Inventory & Sales System!\n")
+
 
 # MAIN SYSTEM LOOP
 
@@ -215,7 +264,7 @@ while True:
     print("─"*35)
 
     try:
-        choice = int(input("Enter your choice (1-7): ")) 
+        choice = int(input("Enter your choice (1-7): "))
     except ValueError:
         print("\n❌ Error: Please enter a valid menu number!")
         continue
@@ -241,5 +290,6 @@ while True:
     elif choice == 7:
         my_shop.save_and_exit()
         break
+
     else:
         print("\n❌ Error: Out of bounds choice! Please select between 1 and 7.")
