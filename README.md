@@ -218,23 +218,23 @@ Screenshots of the application are stored in the **`Screeshots/`** folder.
 
 ### Main Menu
 
-![Main Menu](Screeshots/Main%20Menu.png)
+![Main Menu](screeshots/Main%20Menu.png)
 
 ### Inventory Report
 
-![Inventory Report](Screeshots/Inventory.png)
+![Inventory Report](screeshots/Inventory.png)
 
 ### Successful Sale — Step 1
 
-![Successful Sale 1](Screeshots/Successful%20Sale%201.0.png)
+![Successful Sale 1](screeshots/Successful%20Sale%201.0.png)
 
 ### Successful Sale — Step 2
 
-![Successful Sale 2](Screeshots/Successful%20Sale%202.0.png)
+![Successful Sale 2](screeshots/Successful%20Sale%202.0.png)
 
 ### Total Earnings
 
-![Total Earnings](Screeshots/Total%20Earning.png)
+![Total Earnings](screeshots/Total%20Earning.png)
 
 ---
 
