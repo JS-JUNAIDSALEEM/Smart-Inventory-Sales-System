@@ -1,6 +1,11 @@
-# Local inventory and sales data
-shop_records.json
-
-# Generated Python cache files
+# Python cache files
 __pycache__/
 *.pyc
+
+# Virtual environments
+.venv/
+venv/
+
+# IDE settings
+.vscode/
+.idea/
