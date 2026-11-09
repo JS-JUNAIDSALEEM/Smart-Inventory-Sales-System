@@ -47,7 +47,7 @@ Smart-Inventory-Sales-System/
 **1. Clone the repository**
 
 ```bash
-git clone YOUR_GITHUB_REPOSITORY_LINK
+git clone https://github.com/JS-JUNAIDSALEEM/Smart-Inventory-Sales-System.git
 ```
 
 **2. Open the project folder**
