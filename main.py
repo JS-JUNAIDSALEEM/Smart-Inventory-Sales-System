@@ -1,3 +1,4 @@
+
 import json
 import os
 
@@ -115,6 +116,9 @@ class Shop:
         print(f"\nSuccess: Sold {item_quantity} {selected_item.capitalize()}!")
         print(f"Bill Amount: Rs. {price_item:.2f}")
 
+        # Save database after successful sale
+        self.save_database()
+
 # 3. SHOW TOTAL EARNINGS
 
     def show_total_earnings(self):
@@ -155,6 +159,9 @@ class Shop:
 
             print(f"Restock Complete: {new_stock.capitalize()} total stock is now {self.inventory[new_stock].quantity}.")
 
+            # Save database after successful restock
+            self.save_database()
+
         else:
             print(f"\n'{new_stock.capitalize()}' is a new product.")
 
@@ -178,6 +185,9 @@ class Shop:
 
             print(f"{new_stock.capitalize()} successfully added!")
 
+            # Save database after adding new product
+            self.save_database()
+
 # 5. DELETE ITEM
 
     def delete_item(self):
@@ -191,6 +201,9 @@ class Shop:
         if item_to_delete in self.inventory:
             del self.inventory[item_to_delete]
             print(f"{item_to_delete.capitalize()} has been removed from inventory!")
+
+            # Save database after successful deletion
+            self.save_database()
 
         else:
             print("Error: Item not found in inventory.")
