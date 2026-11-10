@@ -66,14 +66,15 @@ python main.py
 
 A separate `test_shop.py` file is included to check basic project features.
 
-It includes simple tests for:
+It contains 10 simple checks for:
 
-- Default inventory
-- Product stock
-- Product prices
-- Coupon codes
-- Total earnings
-- Database version
+- Default inventory.
+- Product stock.
+- Product prices.
+- Coupon codes.
+- Product objects.
+- Database version.
+- Number of default products.
 
 Run the tests using:
 
@@ -81,15 +82,19 @@ Run the tests using:
 python -m tests.test_shop
 ```
 
+**Note:** These are basic print-based checks. They display whether each check passes or fails.
+
 ## Data Storage
 
-The project uses a JSON file to save shop records.
+The project uses a JSON file to store shop records.
 
 Product information, stock quantities, and total earnings are saved in:
 
 `data/shop_records.json`
 
-This allows the shop data to be loaded again when the application starts.
+When the application starts, it loads the saved records from this file. This helps keep shop data available between program runs.
+
+The JSON file currently contains sample shop records, which may differ from the original default inventory.
 
 ## What I Learned
 
@@ -109,6 +114,7 @@ While working on this project, I practiced:
 - Generate sales reports.
 - Add customer records.
 - Improve transaction history.
+- Save records automatically after successful operations.
 - Add more testing features.
 
 ## 👨‍💻 Author
@@ -117,4 +123,3 @@ While working on this project, I practiced:
 
 - **GitHub:** [JS-JUNAIDSALEEM](https://github.com/JS-JUNAIDSALEEM)
 - **LinkedIn:** [Junaid Saleem](https://www.linkedin.com/in/junaid-saleem-developer/)
-- 
