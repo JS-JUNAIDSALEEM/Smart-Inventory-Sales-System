@@ -10,7 +10,7 @@
         },
         "biscuits": {
             "price": 40.0,
-            "quantity": 10
+            "quantity": 5
         },
         "chocolate": {
             "price": 80.0,
@@ -22,7 +22,7 @@
         },
         "water": {
             "price": 30.0,
-            "quantity": 20
+            "quantity": 25
         },
         "candy": {
             "price": 10.0,
@@ -33,6 +33,6 @@
             "quantity": 18
         }
     },
-    "total_earnings": 295.0,
+    "total_earnings": 0.0,
     "database_version": 2
- }
+}

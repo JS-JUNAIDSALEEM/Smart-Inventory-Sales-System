@@ -9,3 +9,5 @@ venv/
 # IDE settings
 .vscode/
 .idea/
+
+data/shop_records.json
