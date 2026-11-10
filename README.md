@@ -35,9 +35,6 @@ Smart-Inventory-Sales-System/
 ├── requirements.txt
 ├── .gitignore
 │
-├── data/
-│   └── shop_records.json
-│
 └── tests/
     └── test_shop.py
 ```
@@ -69,12 +66,15 @@ A separate `test_shop.py` file is included to check basic project features.
 It contains 10 simple checks for:
 
 - Default inventory.
-- Product stock.
-- Product prices.
+- Default product stock.
+- Total shop earnings.
 - Coupon codes.
+- Second coupon code.
 - Product objects.
+- Product prices.
 - Database version.
 - Number of default products.
+- Initial inventory quantity.
 
 Run the tests using:
 
@@ -88,21 +88,17 @@ python -m tests.test_shop
 
 The project uses a JSON file to store shop records.
 
-Product information, stock quantities, and total earnings are saved in:
+The file is named `shop_records.json` and is located inside a local `data/` folder when used by the application.
 
-`data/shop_records.json`
+This file works as a local working data file. It helps the application save and load shop records between program runs.
 
-When the application starts, it loads the saved records from this file. This helps keep shop data available between program runs.
+The file stores:
 
-### Sample Database Data
+- **Inventory:** Product names, prices, and available stock quantities.
+- **Total Earnings:** Total money earned from successful sales after discounts.
+- **Database Version:** The current database structure version. It helps the program manage changes in the database format.
 
-The `shop_records.json` file stores the shop's inventory and earnings.
-
-- **Inventory:** Stores each product's name, price, and available quantity.
-- **Total Earnings:** Stores the total money earned from successful sales after discounts.
-- **Database Version:** Stores the current database structure version. It helps the program manage changes in the database format.
-
-The quantities and earnings in this file represent the currently saved shop data. They may change when products are sold, restocked, added, or deleted.
+**Note:** The `shop_records.json` file is excluded from the GitHub repository using `.gitignore`. It is a local data file used by the application, not a permanent project source file. Its contents can change when products are sold, restocked, added, or deleted.
 
 ## What I Learned
 
