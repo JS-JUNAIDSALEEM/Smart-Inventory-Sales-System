@@ -94,7 +94,15 @@ Product information, stock quantities, and total earnings are saved in:
 
 When the application starts, it loads the saved records from this file. This helps keep shop data available between program runs.
 
-The JSON file currently contains sample shop records, which may differ from the original default inventory.
+### Sample Database Data
+
+The `shop_records.json` file stores the shop's inventory and earnings.
+
+- **Inventory:** Stores each product's name, price, and available quantity.
+- **Total Earnings:** Stores the total money earned from successful sales after discounts.
+- **Database Version:** Stores the current database structure version. It helps the program manage changes in the database format.
+
+The quantities and earnings in this file represent the currently saved shop data. They may change when products are sold, restocked, added, or deleted.
 
 ## What I Learned
 
