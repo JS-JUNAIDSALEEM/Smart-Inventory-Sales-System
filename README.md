@@ -79,7 +79,7 @@ It contains 10 simple checks for:
 Run the tests using:
 
 ```bash
-python -m tests.test_shop
+py -m tests.test_shop
 ```
 
 **Note:** These are basic print-based checks. They display whether each check passes or fails.
